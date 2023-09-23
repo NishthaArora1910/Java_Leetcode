@@ -1,0 +1,17 @@
+class Solution {
+    public boolean asteroidsDestroyed(int mass, int[] a) {
+        Arrays.sort(a);
+        //  mass of the planet is smaller than the smallest asteroid
+        //  return false
+        if(mass < a[0]) return false;
+        long curr_planet_mass = mass;
+        for (int i = 0; i < a.length; i++) {
+            if (curr_planet_mass >= a[i]) {
+                curr_planet_mass += a[i];
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
